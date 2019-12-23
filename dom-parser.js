@@ -12,10 +12,7 @@ DOMParser.prototype.parseFromString = function(source,mimeType){
 	var defaultNSMap = options.xmlns||{};
 	var isHTML = /\/x?html?$/.test(mimeType);//mimeType.toLowerCase().indexOf('html') > -1;
 
-  	var entityMap = {};
-
-    if (mimeType.toLowerCase().indexOf('html') > -1) {
-      entityMap = {
+  	var entityMap = {
         'lt' : '<',
         'gt' : '>',
         'amp' : '&',
@@ -258,11 +255,6 @@ DOMParser.prototype.parseFromString = function(source,mimeType){
         "hearts": "♥",
         "diams": "♦"
       };
-    }
-    else {
-      entityMap = {'lt':'<','gt':'>','amp':'&','quot':'"','apos':"'"};
-    }
-	
 	if(locator){
 		domBuilder.setDocumentLocator(locator)
 	}
